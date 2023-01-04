@@ -53,7 +53,7 @@ module.exports.employeeProfile = function(req,res){
 
 // to create the reviews
 module.exports.createReview = function(req,res){
-    console.log(req.body);
+    // console.log(req.body);
     User.findById(req.body.user, function(err, user){
 
         if(err){
@@ -62,7 +62,7 @@ module.exports.createReview = function(req,res){
         }
 
         if(user){
-            console.log(user);
+            // console.log(user);
             Review.create(req.body, function(err, review){
                 if(err){
                     console.log("error while creating review");
@@ -97,13 +97,13 @@ module.exports.allreviews = function(req,res){
 
 // making employee an Admin
 module.exports.makeadmin = function(req,res){
-    console.log(req.params.id);
+    // console.log(req.params.id);
     User.findByIdAndUpdate(req.params.id,{isAdmin: "true"} ,function(err, user){
         if(err){
             console.log("error");
             return;
         }
-        console.log(user);
+        // console.log(user);
         return res.redirect('back')
     })
 }
@@ -135,7 +135,7 @@ module.exports.reviewUpdatepage = function(req,res){
 
 // updating the reviews
 module.exports.updateReview = function(req,res){
-    console.log(req.body);
+    // console.log(req.body);
     Review.findByIdAndUpdate(req.params.id, req.body, function(err, review){
         if(err){
             console.log("error in finding the review");
@@ -149,7 +149,7 @@ module.exports.updateReview = function(req,res){
 // deleteing the review
 
 module.exports.deleteReview = function(req,res){
-    console.log(req.params);
+    // console.log(req.params);
     Review.findByIdAndDelete(req.params.id, function(err){
         if(err){
             console.log("error while deleting the review");

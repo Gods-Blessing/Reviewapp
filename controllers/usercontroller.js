@@ -73,7 +73,7 @@ module.exports.createreviewbyuser= function(req,res){
         }
 
         if(review){
-            console.log(review);
+            // console.log(review);
             Reviewbyuser.create({
                 content: req.body.content,
                 user: req.user.id,
